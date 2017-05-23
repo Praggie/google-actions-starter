@@ -1,27 +1,41 @@
 {
-    "versionLabel": "1.0.0",
-    "agentInfo": {
-        "languageCode": "en-US",
-        "projectId": "my-first-action",
-        "voiceName": "male_1"
-    },
-    "actions": [{
-        "initialTrigger": {
-            "intent": "assistant.intent.action.MAIN"
+	"actions": [
+      {
+        "description": "Default Welcome Intent",
+        "name": "MAIN",
+        "fulfillment": {
+          "conversationName": "musicplayer"
         },
-        "httpExecution": {
-            "url": "https://d00fe3f3.ngrok.io"
-        }
-    }, {
-        "description": "Deep link that speaks back the date",
-        "initial_trigger": {
-            "intent": "my.deeplink.intent",
+        "intent": {
+          "name": "actions.intent.MAIN",
+          "trigger": {
             "queryPatterns": [
-                { "queryPattern": "know what is the date" }
+              "talk to news reader"
             ]
-        },
-        "http_execution": {
-            "url": "https://d00fe3f3.ngrok.io"
+          }
         }
-    }]
+      },
+       {
+        "description": "Deep link that speaks back the date",
+        "name": "my.deeplink.intent",
+        "fulfillment": {
+          "conversationName": "musicplayer"
+        },
+        "intent": {
+          "name": "my.deeplink.intent",
+          "trigger": {
+            "queryPatterns": [
+              "play news"
+            ]
+          }
+        }
+      }
+    ],
+    "conversations": {
+      "musicplayer": {
+        "name": "musicplayer",
+        "url": "https://a40273e3.ngrok.io"
+      }
+    }
+
 }

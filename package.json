@@ -27,9 +27,11 @@
     "build:watch": "npm run build -- -w",
     "action:simulate": "gactions simulate",
     "action:preview": "node ./scripts/preview_action.js",
+    "action:test": "node ./scripts/test_action.js",
     "action:config": "node ./scripts/update_action_config.js -f",
     "action:autopreview": "npm run action:config && npm run action:preview",
-    "action:deploy": "gactions deploy --action_package action.json --project my-first-action",
+    "action:deploy": "gactions deploy --action_package action.json --project assisto-skill",
+    "action:update":"gactions update --action_package action.json --project assisto-skill",
     "release": "npm run build && npm version patch && git push --tags && git push && npm publish"
   },
   "dependencies": {
